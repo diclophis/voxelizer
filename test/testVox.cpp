@@ -14,14 +14,14 @@ int main(int argc, char* argv[]) {
 	int x, y, z, count = 0;
 	while (*input >> x >> y >> z) {
 		// do something
-		if (count == 0) cout << "first line : " << x << ", " << y << ", " << z << endl; // first line
+		if (true || count == 0) cout << "" << x << "," << y << "," << z << endl; // first line
 		++count;
 	}
-	cout << "last line : " << x << ", " << y << ", " << z << endl; //last line
+	//cout << "last line : " << x << ", " << y << ", " << z << endl; //last line
 	input->close();
-	cout << "grid size : " << grid_size << endl;
-	cout << "lower bound : " << lx << " " << ly << " " << lz << endl;
-	cout << "voxel size : " << voxel_size << endl;
-	cout << "voxel count : " << count << endl;
+	//cout << "grid size : " << grid_size << endl;
+	//cout << "lower bound : " << lx << " " << ly << " " << lz << endl;
+	//cout << "voxel size : " << voxel_size << endl;
+	//cout << "voxel count : " << count << endl;
 }
 
