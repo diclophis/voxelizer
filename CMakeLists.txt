@@ -40,23 +40,23 @@ if(NOT ASSIMP_FOUND)
   pkg_check_modules(ASSIMP assimp)
 endif()
 
-if( ASSIMP_FOUND )
-  message(STATUS "Found assimp version ${ASSIMP_VERSION}, ${ASSIMP_PACKAGE_VERSION}, ${ASSIMP_INCLUDE_DIRS}")
-  # For older versions of libassimp2, 
-  # like the one in Ubuntu 12.04 
-  set(CMAKE_REQUIRED_LIBRARIES assimp) 
-  find_path(ASSIMP_LIBRARY_DIRS
-        ${CMAKE_SHARED_LIBRARY_PREFIX}assimp${CMAKE_SHARED_LIBRARY_SUFFIX})
-  if(ASSIMP_LIBRARY_DIRS)
-      #set(ASSIMP_LIBRARIES ${CMAKE_SHARED_LIBRARY_PREFIX}assimp${CMAKE_SHARED_LIBRARY_SUFFIX})
-      message(STATUS "Assimp library : " ${ASSIMP_LIBRARIES}) 
-  else()
-      message(FATAL_ERROR "Libassimp is required by Voxelizer")
-  endif()
+#if( ASSIMP_FOUND )
+#  message(STATUS "Found assimp version ${ASSIMP_VERSION}, ${ASSIMP_PACKAGE_VERSION}, ${ASSIMP_INCLUDE_DIRS}")
+#  # For older versions of libassimp2, 
+#  # like the one in Ubuntu 12.04 
+#  set(CMAKE_REQUIRED_LIBRARIES assimp) 
+#  find_path(ASSIMP_LIBRARY_DIRS
+#        ${CMAKE_SHARED_LIBRARY_PREFIX}assimp${CMAKE_SHARED_LIBRARY_SUFFIX})
+#  if(ASSIMP_LIBRARY_DIRS)
+set(ASSIMP_LIBRARIES ${CMAKE_SHARED_LIBRARY_PREFIX}assimp${CMAKE_SHARED_LIBRARY_SUFFIX})
+#      message(STATUS "Assimp library : " ${ASSIMP_LIBRARIES}) 
+#  else()
+#      message(FATAL_ERROR "Libassimp is required by Voxelizer")
+#  endif()
   if( ${ASSIMP_VERSION} STRGREATER "2.0.0" )
     set(IS_ASSIMP3 1)
   endif()
-endif()
+#endif()
 
 add_subdirectory(src bin)
 
